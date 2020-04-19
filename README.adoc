@@ -5,7 +5,8 @@
 Navigate to your themes folder in your Hugo site and use the following commands:
 
 ```
-$ git clone --recurse-submodules https://github.com/HodGreeley/hugo-theme-evolve.git
+$ git submodule add https://github.com/HodGreeley/hugo-theme-evolve.git themes/evolve
+$ git submodule update --init --recursive
 ```
 
 ## License
