@@ -1,0 +1,17 @@
+{{ define "main" }}
+
+    {{ partial "navigation.html" . }}
+    
+    <h1>{{ .Title }}</h1>
+    <ul>
+      {{ range where .Pages.ByPublishDate.Reverse "Section" "posts" }}
+        <li>
+          {{ $dateFormat := $.Site.Params.dateFormat | default "Jan 2, 2006" }}
+          {{ .PublishDate.Format $dateFormat }}
+          <a href="{{ .Permalink }}">
+            {{ .Title }}
+          </a>
+        </li>        
+      {{ end }}
+    </ul>
+{{ end }}

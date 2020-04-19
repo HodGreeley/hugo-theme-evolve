@@ -1,0 +1,15 @@
+# https://github.com/HodGreeley/hugo-theme-evolve[Evolve]
+
+## Installation
+
+Navigate to your themes folder in your Hugo site and use the following commands:
+
+```
+$ git clone --recurse-submodules https://github.com/HodGreeley/hugo-theme-evolve.git
+```
+
+## License
+
+Licensed under https://creativecommons.org/licenses/by/4.0/[Creative Commons Attribution 4.0 International (CC BY 4.0)].
+
+https://getbootstrap.com/[Bootstrap] used under terms of the https://opensource.org/licenses/MIT[MIT License].

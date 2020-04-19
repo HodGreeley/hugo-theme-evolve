@@ -1,0 +1,102 @@
+@import url("https://fonts.googleapis.com/css?family=Anaheim:400,700");
+
+// Bootstrap Options
+$enable-caret:  true;
+$enable-rounded: true;
+$enable-shadows: false;
+$enable-gradients: false;
+$enable-transitions: true;
+$enable-grid-classes: true;
+$enable-print-styles: true;
+
+// Minmum required from boostrap
+@import "../bootstrap/scss/functions";
+@import "../bootstrap/scss/variables";
+@import "../bootstrap/scss/mixins";
+
+// Optional parts of boostrap
+@import "../bootstrap/scss/reboot";
+@import "../bootstrap/scss/type";
+@import "../bootstrap/scss/images";
+@import "../bootstrap/scss/code";
+@import "../bootstrap/scss/grid";
+@import "../bootstrap/scss/nav";
+@import "../bootstrap/scss/navbar";
+@import "../bootstrap/scss/transitions";
+@import "../bootstrap/scss/utilities";
+
+// Customizations
+
+$matisse: #13678C;
+
+$social-icon-background-color: $matisse;
+
+body {
+  font-family: "Anaheim", sans-serif;
+}
+
+.navbar .social-links .list-inline {
+  margin: 0;
+}
+
+@media (min-width: 992px) {
+  .navbar .social-links {
+    order: 1;
+  }
+}
+
+.navbar-brand {
+  display: flex;
+  padding: 0;
+}
+
+.navbar-brand img {
+  height: 32px;
+  width: 50%;
+}
+.social-links ul {
+  text-align: center;
+}
+
+.social-links ul li:hover a {
+  background-color: $social-icon-background-color;
+  transform: rotateY(0deg);
+}
+
+.social-links ul li:hover a i {
+  color: #f5f8fa;
+  opacity: 1;
+  filter: alpha(opacity=100);
+  transform: rotateY(0deg);
+}
+
+.social-links ul li a {
+  background-color: #26292e;
+  border: 1px solid transparent;
+  display: block;
+  height: 32px;
+  width: 32px;
+  transform: rotateY(180deg);
+  transition: all 400ms ease-out 0s;
+}
+
+.social-links ul li a i {
+  display: inline-block;
+  font-size: 16px;
+  line-height: 32px;
+  opacity: 0.6;
+  filter: alpha(opacity=50);
+  transform: rotateY(180deg);
+  transition: all 400ms ease-out 0s;
+}
+
+@media (max-width: 768px) {
+  .social-links ul li a i {
+  }
+}
+
+{{ range .Site.Params.nav.socialLink }}
+.{{ .fa_name }} {
+  color: {{ .color }};
+}
+{{ end }}

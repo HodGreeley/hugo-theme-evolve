@@ -1,0 +1,30 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+  <div class="container">
+    <a class="navbar-brand" href="#">
+      <img src="{{ .Site.Params.logo | absURL }}" alt="Logo" />
+      <div class="font-weight-bold">{{ .Site.Title }}</div>
+    </a>
+
+    <div class="social-links">
+      <ul class="list-inline">
+        {{ range .Site.Params.nav.socialLink }}
+          <li class="list-inline-item"><a href="{{ .url }}"><i class="{{ .fa_style }} {{ .fa_name }}"></i></a></li>
+        {{ end }}
+      </ul>
+    </div>
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav ml-auto">
+        {{ $currentPage := . }}
+        {{ range .Site.Menus.main }}
+          <li class="nav-item">
+            <a class="nav-link {{if or ($currentPage.IsMenuCurrent "main" .) ($currentPage.HasMenuCurrent "main" .) }} active{{end}}" href="{{ .URL }}" title="{{ .Title }}">{{ .Name }}</a>
+          </li>
+        {{ end }}
+      </ul>
+    </div>
+  </div>
+</nav>
